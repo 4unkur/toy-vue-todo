@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+<div id="app">
+	<h1>Todo App</h1>
+
+	<h2>All tasks</h2>
+	<ul>
+		<span v-for="task in tasks">
+			<li>
+				{{ task.description }}
+			<input type="checkbox" @click="complete(task)" :checked="checked(task)">
+			</li>
+		</span>
+	</ul>
+
+	<h2 v-if="incompleteTasks.length">Incomplete tasks</h2>
+	<ul>
+		<li v-for="task in incompleteTasks" v-text="task.description"></li>
+	</ul>
+
+	<h2 v-if="completeTasks.length">Completed</h2>
+	<ul>
+		<li v-for="task in completeTasks" v-text="task.description"></li>
+	</ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.sandbox.js"></script>
+</body>
+</html>
